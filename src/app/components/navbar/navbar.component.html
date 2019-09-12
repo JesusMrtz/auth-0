@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['home']">Home</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['precios']">Precios</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" *ngIf="auth.loggedIn">
+                <a class="nav-link" [routerLink]="['protegido']">Protegido</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+            <button class="btn btn-outline-primary" *ngIf="!auth.loggedIn" (click)="auth.login()">Ingresar</button>
+            <button class="btn btn-outline-danger" *ngIf="auth.loggedIn" (click)="auth.logout()">Salir</button>
+      </span>
+    </div>
+</nav>
